@@ -22,7 +22,7 @@ public class TestListener implements TestWatcher {
                     String.valueOf(RunningDrivers.driver.manage().logs().get(LogType.BROWSER).getAll()));
             WebDriverManager.chromedriver().quit();
             RunningDrivers.driver.close();
-            Allure.step("2 Failure on " + context.getTestMethod());
+            Allure.step("Failure on " + context.getTestMethod());
         }catch (Exception e) {
             e.getClass().getName();
         }

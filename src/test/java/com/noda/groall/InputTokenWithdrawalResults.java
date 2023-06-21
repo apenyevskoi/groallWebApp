@@ -25,19 +25,17 @@ public class InputTokenWithdrawalResults extends RunningDrivers{
     public InputTokenWithdrawalResults checkTokenAmountResult(){
         String alertMessage = driver.switchTo().alert().getText();
         driver.switchTo().alert().accept();
-        try {
-            int tokenWithdrawAmount = Integer.parseInt(alertMessage.
-                    split(" ")[alertMessage.split(" ").length - 3].split(",")[0]);
-            int tokenBalanceAmount = parseTokenBalanceInCoin();
-            int expected = tokenBalanceAmount - (tokenWithdrawAmount*100);
-            int actual = Integer.parseInt(alertMessage.
-                    split(" ")[alertMessage.split(" ").length]);
-            Allure.addAttachment("Result", "Expected: " + expected +
-                    ". Actual: " + actual +
-                    ". Balance: " + tokenBalanceAmount);
-            Assertions.assertEquals(expected, actual);
-        }catch (Exception e){
-        }
+        int coinWithdrawAmount = Integer.parseInt(alertMessage.
+                split(" ")[alertMessage.split(" ").length - 3].split(",")[0]);
+        int tokenBalanceAmount = parseTokenBalanceInCoin();
+        int expected = tokenBalanceAmount - (coinWithdrawAmount);
+        //122000 - 100 = 121900
+        int actual = Integer.parseInt(alertMessage.
+                split(" ")[alertMessage.split(" ").length-1]);
+        Allure.addAttachment("Result", "Expected: " + expected +
+                ". Actual: " + actual +
+                ". Balance: " + tokenBalanceAmount);
+        Assertions.assertEquals(expected, actual);
         return this;
     }
     public InputTokenWithdrawalResults checkCheckBox(){
