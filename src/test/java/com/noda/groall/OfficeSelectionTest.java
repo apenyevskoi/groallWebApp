@@ -94,4 +94,13 @@ public class OfficeSelectionTest extends RunningDrivers{
         inputTokenWithdrawalPage.checkInputSpecialSymbols(argument);
         inputTokenWithdrawalResults.checkTokenInputSpecialSymbols();
     }
+    @Test
+    @Description
+    @Severity(SeverityLevel.NORMAL)
+    public void checkBalanceSubstractionTest(){
+        driver.get("https://groall.noda.pro/test_qa?FranchiseeId=250790");
+        InputTokenWithdrawalPage inputTokenWithdrawalPage =
+                PageFactory.initElements(driver, InputTokenWithdrawalPage.class);
+        inputTokenWithdrawalPage.checkBalanceSubstraction("100");
+    }
 }

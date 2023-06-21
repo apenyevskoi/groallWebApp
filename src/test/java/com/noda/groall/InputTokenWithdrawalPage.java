@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -20,6 +21,13 @@ public class InputTokenWithdrawalPage {
     private WebElement checkBox;
     @FindBy(css = "label#value-error.error")
     private WebElement inputContextError;
+    @FindBy(css = ".baseContent p")
+    private WebElement balance;
+    public int parseTokenBalanceInCoin(){
+        double tokenMaxAmountDouble = Double.parseDouble(balance.getText().split(" ")[1]) / 100;
+        return Integer.parseInt(
+                Double.toString(Math.floor(tokenMaxAmountDouble)).split("\\.")[0]);
+    }
     public InputTokenWithdrawalResults inputNAmount(int tokens){
         inputTokenAmount.sendKeys(String.valueOf(tokens));
         inputBtn.click();
@@ -57,5 +65,13 @@ public class InputTokenWithdrawalPage {
         wait = new WebDriverWait(driver, 5);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("label#value-error.error")));
         return new InputTokenWithdrawalResults();
+    }
+    public void checkBalanceSubstraction(String value){
+        InputTokenWithdrawalResults inputTokenWithdrawalResults =
+                PageFactory.initElements(driver, InputTokenWithdrawalResults.class);
+        int initialBalance = parseTokenBalanceInCoin();
+        inputTokenAmount.sendKeys(value);
+        inputBtn.click();
+        inputTokenWithdrawalResults.checkBalanceSubstraction(initialBalance, value);
     }
 }

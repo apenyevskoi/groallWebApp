@@ -16,7 +16,7 @@ public class InputTokenWithdrawalResults extends RunningDrivers{
     private WebElement balance;
     @FindBy(css = "label#value-error.error")
     private WebElement inputContextError;
-    private int parseTokenBalanceInCoin(){
+    public int parseTokenBalanceInCoin(){
         double tokenMaxAmountDouble = Double.parseDouble(balance.getText().split(" ")[1]) / 100;
         return Integer.parseInt(
                         Double.toString(Math.floor(tokenMaxAmountDouble)).split("\\.")[0]);
@@ -29,7 +29,6 @@ public class InputTokenWithdrawalResults extends RunningDrivers{
                 split(" ")[alertMessage.split(" ").length - 3].split(",")[0]);
         int tokenBalanceAmount = parseTokenBalanceInCoin();
         int expected = tokenBalanceAmount - (coinWithdrawAmount);
-        //122000 - 100 = 121900
         int actual = Integer.parseInt(alertMessage.
                 split(" ")[alertMessage.split(" ").length-1]);
         Allure.addAttachment("Result", "Expected: " + expected +
@@ -73,6 +72,12 @@ public class InputTokenWithdrawalResults extends RunningDrivers{
         String expected = "Поле должно содержать только цифры!";
         String actual = inputContextError.getText();
         Assertions.assertEquals(expected, actual);
+        return this;
+    }
+    public InputTokenWithdrawalResults checkBalanceSubstraction(int initialBalance, String value){
+        int actual = parseTokenBalanceInCoin()*100;
+        int extected = (initialBalance - Integer.parseInt(value))*100;
+        Assertions.assertEquals(extected, actual);
         return this;
     }
 }
