@@ -38,7 +38,9 @@ public class InputTokenWithdrawalResults extends RunningDrivers{
         return this;
     }
     public InputTokenWithdrawalResults checkCheckBoxClick(int actual){
-        int expected = parseTokenBalanceInCoin()*100;
+        int expected = parseTokenBalanceInCoin();
+        expected *= 100;
+        Allure.addAttachment("Result", "Expected: " + expected + ". Actual: " + actual);
         Assertions.assertEquals(expected, actual);
         return this;
     }

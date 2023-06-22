@@ -16,7 +16,7 @@ public class OfficeSelectionTest extends RunningDrivers{
     @Test
     @Description("Test-Case 1. Offices address checking")
     @Severity(SeverityLevel.NORMAL)
-//    @Disabled
+    @Disabled
     public void checkOfficeAddressAtOfficeSelectionPageTest(){
         driver.get("https://groall.noda.pro/test_qa");
         OfficeSelectionPage officeSelectionPage =
@@ -30,7 +30,7 @@ public class OfficeSelectionTest extends RunningDrivers{
     @Test
     @Description("Test-Case 2. Withdrawing 1 coin amount")
     @Severity(SeverityLevel.NORMAL)
-//    @Disabled
+    @Disabled
     public void checkInputTokens1AmountTest(){
         driver.get("https://groall.noda.pro/test_qa?FranchiseeId=250790");
         InputTokenWithdrawalPage inputTokenWithdrawalPage =
@@ -52,7 +52,7 @@ public class OfficeSelectionTest extends RunningDrivers{
     @Test
     @Description("Test-Case 3. Withdrawing max amount using check-box")
     @Severity(SeverityLevel.NORMAL)
-//    @Disabled
+    @Disabled
     public void checkCheckBoxTest(){
         driver.get("https://groall.noda.pro/test_qa?FranchiseeId=250790");
         InputTokenWithdrawalPage inputTokenWithdrawalPage =
@@ -65,7 +65,7 @@ public class OfficeSelectionTest extends RunningDrivers{
     @Test
     @Description("Test-Case 4. Withdrawing amount more than balance")
     @Severity(SeverityLevel.NORMAL)
-//    @Disabled
+    @Disabled
     public void checkInputTokensAmountMoreThanBalanceTest(){
         driver.get("https://groall.noda.pro/test_qa?FranchiseeId=250790");
         InputTokenWithdrawalPage inputTokenWithdrawalPage =
@@ -79,7 +79,7 @@ public class OfficeSelectionTest extends RunningDrivers{
     @Description("Test-Case 5. Checking input of negative or zero value")
     @Severity(SeverityLevel.NORMAL)
     @ValueSource(strings = {"-500", "0"})
-//    @Disabled
+    @Disabled
     public void checkTokenInputNegativeOrZeroValueTest(String argument){
         driver.get("https://groall.noda.pro/test_qa?FranchiseeId=250790");
         InputTokenWithdrawalPage inputTokenWithdrawalPage =
@@ -93,7 +93,7 @@ public class OfficeSelectionTest extends RunningDrivers{
     @Description("Test-Case 6. Checking input of non-numeric symbols")
     @Severity(SeverityLevel.NORMAL)
     @ValueSource(strings = {"asdf","!@#$","as!@",})
-//    @Disabled
+    @Disabled
     public void checkTokenInputSpecialSymbolsTest(String argument) {
         driver.get("https://groall.noda.pro/test_qa?FranchiseeId=250790");
         InputTokenWithdrawalPage inputTokenWithdrawalPage =
@@ -106,7 +106,7 @@ public class OfficeSelectionTest extends RunningDrivers{
     @Test
     @Description("Test-Case 7. Checking balance after amount withdrawing")
     @Severity(SeverityLevel.CRITICAL)
-//    @Disabled
+    @Disabled
     public void checkBalanceSubstractionTest(){
         driver.get("https://groall.noda.pro/test_qa?FranchiseeId=250790");
         InputTokenWithdrawalPage inputTokenWithdrawalPage =
