@@ -43,6 +43,15 @@ public class OfficeSelectionTest extends RunningDrivers{
     @Test
     @Description
     @Severity(SeverityLevel.NORMAL)
+    public void checkCheckBoxClickTest(){
+        driver.get("https://groall.noda.pro/test_qa?FranchiseeId=250790");
+        InputTokenWithdrawalPage inputTokenWithdrawalPage =
+                PageFactory.initElements(driver, InputTokenWithdrawalPage.class);
+        inputTokenWithdrawalPage.checkCheckBoxClick();
+    }
+    @Test
+    @Description
+    @Severity(SeverityLevel.NORMAL)
 //    @Disabled
     public void checkCheckBoxTest(){
         driver.get("https://groall.noda.pro/test_qa?FranchiseeId=250790");
@@ -97,6 +106,7 @@ public class OfficeSelectionTest extends RunningDrivers{
     @Test
     @Description
     @Severity(SeverityLevel.NORMAL)
+//    @Disabled
     public void checkBalanceSubstractionTest(){
         driver.get("https://groall.noda.pro/test_qa?FranchiseeId=250790");
         InputTokenWithdrawalPage inputTokenWithdrawalPage =

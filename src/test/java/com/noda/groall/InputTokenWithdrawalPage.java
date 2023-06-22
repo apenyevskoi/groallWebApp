@@ -39,6 +39,13 @@ public class InputTokenWithdrawalPage {
         inputTokenAmount.sendKeys(String.valueOf(value));
         return new InputTokenWithdrawalResults();
     }
+    public void checkCheckBoxClick(){
+        InputTokenWithdrawalResults inputTokenWithdrawalResults =
+                PageFactory.initElements(driver, InputTokenWithdrawalResults.class);
+        checkBox.click();
+        int withdrawalValue = Integer.parseInt(inputTokenAmount.getAttribute("value"));
+        inputTokenWithdrawalResults.checkCheckBoxClick(withdrawalValue);
+    }
     public InputTokenWithdrawalResults checkCheckBoxMaxTokenAmount(){
         try {
             if(!checkBox.isSelected()) {

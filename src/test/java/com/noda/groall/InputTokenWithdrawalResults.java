@@ -37,6 +37,11 @@ public class InputTokenWithdrawalResults extends RunningDrivers{
         Assertions.assertEquals(expected, actual);
         return this;
     }
+    public InputTokenWithdrawalResults checkCheckBoxClick(int actual){
+        int expected = parseTokenBalanceInCoin()*100;
+        Assertions.assertEquals(expected, actual);
+        return this;
+    }
     public InputTokenWithdrawalResults checkCheckBox(){
         String alertMessage = driver.switchTo().alert().getText();
         driver.switchTo().alert().accept();
