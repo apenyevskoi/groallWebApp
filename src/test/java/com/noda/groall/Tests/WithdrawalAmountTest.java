@@ -29,7 +29,6 @@ public class WithdrawalAmountTest extends RunningDrivers {
     /**
      * Test withdrawing of 1 coin. Assert balance after withdrawing.
      */
-
     @Test
     @Description("Test-Case 2. Withdrawing 1 coin amount")
     @Severity(SeverityLevel.NORMAL)
@@ -65,7 +64,6 @@ public class WithdrawalAmountTest extends RunningDrivers {
     /**
      * Test click on check-box to trace appearance of max amount in the input form
      */
-
     @Test
     @Description("Test-Case 8. Click on check-box")
     @Severity(SeverityLevel.NORMAL)
@@ -93,7 +91,6 @@ public class WithdrawalAmountTest extends RunningDrivers {
     /**
      * Click check-box and withdrawal button to assert balance after withdrawing
      */
-
     @Test
     @Description("Test-Case 3. Withdrawing max amount using check-box")
     @Severity(SeverityLevel.NORMAL)
@@ -129,7 +126,6 @@ public class WithdrawalAmountTest extends RunningDrivers {
     /**
      * Insert withdrawal amount more than balance and trace message
      */
-
     @Test
     @Description("Test-Case 4. Withdrawing amount more than balance")
     @Severity(SeverityLevel.NORMAL)
@@ -164,7 +160,6 @@ public class WithdrawalAmountTest extends RunningDrivers {
      * Test of negative and zero values of amount in input form
      * @param argument -500, 0
      */
-
     @ParameterizedTest
     @Description("Test-Case 5. Checking input of negative or zero value")
     @Severity(SeverityLevel.NORMAL)
@@ -174,14 +169,11 @@ public class WithdrawalAmountTest extends RunningDrivers {
         driver.get(withdrawalPageUrl);
         WithdrawalAmountPage withdrawalAmountPage = new WithdrawalAmountPage();
 
-        // withdrawal amount value
-        String withdrawalAmountCoins = argument;
-
         // expected value
         String expected = "Введеное кол-во коинов должно быть больше 0";
 
         // send value of withdrawal amount
-        withdrawalAmountPage.inputTokenAmount(withdrawalAmountCoins);
+        withdrawalAmountPage.inputTokenAmount(argument);
 
         // click button to withdraw amount
         withdrawalAmountPage.clickInputBtn();
@@ -200,7 +192,6 @@ public class WithdrawalAmountTest extends RunningDrivers {
      * Test of non-numeric symbols
      * @param argument nonnumeric, !@#, as!@
      */
-
     @ParameterizedTest
     @Description("Test-Case 6. Checking input of non-numeric symbols")
     @Severity(SeverityLevel.NORMAL)
@@ -210,14 +201,11 @@ public class WithdrawalAmountTest extends RunningDrivers {
         driver.get(withdrawalPageUrl);
         WithdrawalAmountPage withdrawalAmountPage = new WithdrawalAmountPage();
 
-        // withdrawal amount value
-        String withdrawalAmountCoins = argument;
-
         // expected value (in tokens)
         String expected = "Поле должно содержать только цифры!";
 
         // send value of withdrawal amount
-        withdrawalAmountPage.inputTokenAmount(withdrawalAmountCoins);
+        withdrawalAmountPage.inputTokenAmount(argument);
 
         // click button to withdraw amount
         withdrawalAmountPage.clickInputBtn();
@@ -235,7 +223,6 @@ public class WithdrawalAmountTest extends RunningDrivers {
     /**
      * Test of balance state after amount withdrawing at "Balance form" at "Withdrawal Amount Page"
      */
-
     @Test
     @Description("Test-Case 7. Checking balance after amount withdrawing at 'Balance p form'")
     @Severity(SeverityLevel.CRITICAL)

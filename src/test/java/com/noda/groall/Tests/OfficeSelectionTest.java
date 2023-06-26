@@ -35,7 +35,6 @@ public class OfficeSelectionTest extends RunningDrivers {
     /**
      * Test checks if address format is correct. Address should be according to format "CITY_NAME, street STREET_NAME".
      */
-
     @Test
     @Description("Test-Case 1. Offices address checking")
     @Severity(SeverityLevel.NORMAL)

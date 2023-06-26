@@ -13,6 +13,11 @@ import java.util.Map;
 import static com.noda.groall.RunningDrivers.driver;
 import static com.noda.groall.RunningDrivers.wait;
 
+/**
+ * Page Class of "Withdrawal Amount Page"
+ * https://groall.noda.pro/test_qa?FranchiseeId=250790
+ */
+
 public class WithdrawalAmountPage {
     @FindBy(css = "#sendTokenForm input:nth-child(2)")
     private WebElement inputTokenAmount;
@@ -29,16 +34,14 @@ public class WithdrawalAmountPage {
     /**
      * Constructor of "Withdrawal Amount Page"
      */
-
     public WithdrawalAmountPage(){
         PageFactory.initElements(driver, this);
     }
 
     /**
      * Parse "balance form" webelement at "Withdrawal Amount Page"
-     * @return int value
+     * @return int value of balance
      */
-
     public int parseTokenBalanceInToken(){
         double tokenMaxAmountDouble = Double.parseDouble(balance.getText().split(" ")[1]);
         return Integer.parseInt(
@@ -47,10 +50,9 @@ public class WithdrawalAmountPage {
 
     /**
      * Parse amount value at "Input form" at "Withdrawal Amount Page"
-     * @return
+     * @return int value from input coins form
      */
-
-    public Integer getTokenAmountAtInputForm(){
+    public int getTokenAmountAtInputForm(){
         // wait value in "Input form"
         try {
             wait = new WebDriverWait(driver, 5);
@@ -71,7 +73,6 @@ public class WithdrawalAmountPage {
     /**
      * Send text to withrawal form at "Withdrawal Amount Page"
      */
-
     public void inputTokenAmount(String tokens) {
         inputTokenAmount.sendKeys(tokens);
     }
@@ -79,7 +80,6 @@ public class WithdrawalAmountPage {
     /**
      * Click button "Вывести" at "Withdrawal Amount Page"
      */
-
     public void clickInputBtn() {
         inputBtn.click();
     }
@@ -89,7 +89,6 @@ public class WithdrawalAmountPage {
      * @return Map\<String, Integer>
      *             actual  as int value of actual balance at "Alert message"
      */
-
     public Map<String, Integer> getActualBalanceAtAlertMessage() {
         Map<String,Integer> valuesMap = new HashMap<>();
         // wait "Alert window"
@@ -112,7 +111,6 @@ public class WithdrawalAmountPage {
      * Parse "Alert message"
      * @return String of message
      */
-
     public String getMessageFromAlertWindow(){
         // wait "Alert window"
         wait = new WebDriverWait(driver, 5);
@@ -128,14 +126,13 @@ public class WithdrawalAmountPage {
     /**
      * Click check-box at "Withdrawal Amount Page"
      */
-
     public void clickCheckBox(){
         checkBox.click();
     }
 
     /**
      * Get text from context message at "Withdrawal Amount Page" after button click and incorrect input values
-     * @return
+     * @return String context message as result of incorrect data input
      */
     public String getInputContextError(){
         return inputContextError.getText();

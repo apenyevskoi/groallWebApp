@@ -9,6 +9,11 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Page Class of "Office Selection Page"
+ * https://groall.noda.pro/test_qa
+ */
+
 public class OfficeSelectionPage {
 
     @FindBy(css = "a.franchiseeListLink")
@@ -23,10 +28,9 @@ public class OfficeSelectionPage {
     }
 
     /**
-     * method picks office address to List offices
+     * method picks office address to List of offices
      * @return list of offices
      */
-
     public List<String> officeSelectionCompareWithFormat(){
         return officeSelection.stream()
                     .map(WebElement::getText)
