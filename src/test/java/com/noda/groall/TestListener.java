@@ -11,8 +11,20 @@ import org.openqa.selenium.logging.LogType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Descriptions of actions during "Failed" and "Success" tests
+ */
+
 public class TestListener implements TestWatcher {
+
     private final static Logger logger = (Logger) LoggerFactory.getLogger(WebDriver.class);
+
+    /**
+     * Description of actions during "Failed". Provides report and screenshot to allure
+     * @param context
+     * @param cause
+     */
+
     @Override
     public void testFailed(ExtensionContext context, Throwable cause) {
         try {
@@ -27,6 +39,12 @@ public class TestListener implements TestWatcher {
             e.getClass().getName();
         }
     }
+
+    /**
+     * Description of actions during "Success". Provides allure report of successful test
+     * @param context
+     */
+
     @Override
     public void testSuccessful(ExtensionContext context) {
         Allure.step("Success on " + context.getRequiredTestMethod().getName());

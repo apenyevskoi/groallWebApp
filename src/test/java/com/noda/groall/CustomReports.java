@@ -9,13 +9,30 @@ import org.openqa.selenium.support.events.WebDriverEventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Provides listening of actions during test running like before and after ClickOn
+ */
+
 public class CustomReports extends RunningDrivers implements WebDriverEventListener {
+
     private static Logger logger = (Logger) LoggerFactory.getLogger(WebDriver.class);
+
+    /**
+     * Before Click On action
+     * @param webElement
+     * @param webDriver
+     */
 
     @Override
     public void beforeClickOn(WebElement webElement, WebDriver webDriver) {
         Allure.step("Before click on " + webElement.getText());
     }
+
+    /**
+     * After Click On action
+     * @param webElement
+     * @param webDriver
+     */
 
     @Override
     public void afterClickOn(WebElement webElement, WebDriver webDriver) {
