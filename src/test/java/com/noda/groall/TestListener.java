@@ -11,6 +11,8 @@ import org.openqa.selenium.logging.LogType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Optional;
+
 /**
  * Descriptions of actions during "Failed" and "Success" tests
  */
@@ -53,6 +55,7 @@ public class TestListener implements TestWatcher {
     }
 
     @Override
-    public void testAborted(ExtensionContext context, Throwable cause){
+    public void testDisabled(ExtensionContext context, Optional<String> reason) {
+        int a = 0;
     }
 }
