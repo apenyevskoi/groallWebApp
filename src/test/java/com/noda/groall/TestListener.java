@@ -53,9 +53,4 @@ public class TestListener implements TestWatcher {
         WebDriverManager.chromedriver().quit();
         RunningDrivers.driver.close();
     }
-
-    @Override
-    public void testDisabled(ExtensionContext context, Optional<String> reason) {
-        int a = 0;
-    }
 }
