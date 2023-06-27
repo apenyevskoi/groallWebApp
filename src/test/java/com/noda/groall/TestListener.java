@@ -58,4 +58,8 @@ public class TestListener implements TestWatcher {
     public void testDisabled(ExtensionContext context, Optional<String> reason) {
         int a = 0;
     }
+
+    @Override
+    public void testAborted(ExtensionContext context, Throwable cause){
+    }
 }
