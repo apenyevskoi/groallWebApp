@@ -27,7 +27,7 @@ public class WithdrawalAmountTest extends RunningDrivers {
     private final String withdrawalPageUrl = "https://groall.noda.pro/test_qa?FranchiseeId=250790";
 
     /**
-     * Test withdrawing of 1 coin. Assert balance after withdrawing.
+     * Test withdrawing of 1, 222, 1056 coins. Assert balance after withdrawing.
      */
     @ParameterizedTest
     @Description("Test-Case 2. Withdrawing 1, 222, 1056 coin amount")
