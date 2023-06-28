@@ -125,6 +125,7 @@ public class WithdrawalAmountTest extends RunningDrivers {
 
     /**
      * Insert withdrawal amount more than balance and trace message
+     * Negative test
      */
     @Test
     @Description("Test-Case 4. Withdrawing amount more than balance")
@@ -158,6 +159,7 @@ public class WithdrawalAmountTest extends RunningDrivers {
 
     /**
      * Test of negative and zero values of amount in input form
+     * Negative test
      * @param argument -500, 0
      */
     @ParameterizedTest
@@ -190,6 +192,7 @@ public class WithdrawalAmountTest extends RunningDrivers {
 
     /**
      * Test of non-numeric symbols
+     * Negative test
      * @param argument nonnumeric, !@#, as!@
      */
     @ParameterizedTest
