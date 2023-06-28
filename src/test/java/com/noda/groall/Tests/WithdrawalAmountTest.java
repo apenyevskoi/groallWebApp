@@ -29,16 +29,14 @@ public class WithdrawalAmountTest extends RunningDrivers {
     /**
      * Test withdrawing of 1 coin. Assert balance after withdrawing.
      */
-    @Test
-    @Description("Test-Case 2. Withdrawing 1 coin amount")
+    @ParameterizedTest
+    @Description("Test-Case 2. Withdrawing 1, 222, 1056 coin amount")
     @Severity(SeverityLevel.NORMAL)
-    @Disabled
-    public void inputWithdrawalAmountOfOneTokenAmountTest(){
+    @ValueSource(ints = {1, 222, 1056})
+//    @Disabled
+    public void inputWithdrawalAmountOfOneTokenAmountTest(int withdrawalAmountCoins){
         driver.get(withdrawalPageUrl);
         WithdrawalAmountPage withdrawalAmountPage = new WithdrawalAmountPage();
-
-        // withdrawal amount value (in coins)
-        int withdrawalAmountCoins = 1;
 
         // expected value (in tokens)
         int expected = withdrawalAmountPage.parseTokenBalanceInToken() - (withdrawalAmountCoins * 100);
